@@ -1,0 +1,35 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-beer-title">{{ market.name }}</h3>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">close</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4>Do Not Service List</h4>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Row</th>
+          <th scope="col">Name</th>
+          <th scope="col">Reason</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Car</th>
+          <th scope="col">Vin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let market of market.DoNotServiceList; index as i" [attr.data-index]="i">
+          <th scope="row">{{ i+1 }}</th>
+          <td>{{ market.name }}</td>
+          <td>{{ market.reason }}</td>
+          <td>{{ market.phone }}</td>
+          <td>{{ market.car }}</td>
+          <td>{{ market.vin }}</td>
+        </tr>
+          </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<button class="btn btn-sm btn-outline-dark" (click)="open(content)">Do Not Service</button>
